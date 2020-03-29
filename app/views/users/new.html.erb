@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <h2> Add User </h2>
+  </div>
+  <%= form_with model: @user, url: '/users/create', method: 'post', local: true do |f| %>
+    <div class="form-group">
+      <%= label_tag(:first_name, "First Name") %>
+      <%= f.text_field :first_name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:last_name, "Last Name") %>
+      <%= f.text_field :last_name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:email, "Email") %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <% @roles.each_with_index do |role, index| %>
+        <div class="form-check">
+          <%= hidden_field_tag "roles[#{index}][id]", role.id %>
+          <%= check_box_tag "roles[#{index}][selected]" %>
+          <%= role.name %>
+        </div>
+      <% end %>
+    </div>
+    <%= f.file_field :images, multiple: true%>
+    <div class="additional-fields">
+    </div>
+    <div class="d-block btn btn-primary add-field mt-3 mb-3" style="width: 150px">Add Field</div>
+    <%= f.submit "Add Form" %>
+  <% end %>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $(".add-field").click(function(e){
+      let fieldName = prompt("Please Enter field Name");
+      let fieldValue = prompt("Please Enter field value");
+      $(".additional-fields").append(`
+        <div class="form-group">
+        <label>${fieldName}</lable>
+        <input class='form-control' name=meta_cols[${fieldName}] value=${fieldValue} />
+      `);
+    })
+  })
+</script>

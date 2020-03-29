@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h2> Add Role </h2>
+  </div>
+  <%= form_with model: @role, url: '/roles/create', local: true  do |f| %>
+    <div class="form-group">
+      <%= label_tag(:name, "Role name") %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.check_box :hidden %>
+      <%= label_tag(:hidden, "Hidden") %>
+    </div>
+    <%= f.submit "Add Form" %>
+  <% end %>
+</div>

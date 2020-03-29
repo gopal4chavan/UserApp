@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <h2> Add Role </h2>
+  </div>
+  <%= form_tag '/roles/update_roles', method: :patch do %>
+    <div class="row">
+      <div class="col-md-6 col-sm-6"><b>Role</b></div>
+      <div class="col-md-6 col-sm-6"><b>Mark Hidden</b></div>
+    </div>
+    <% @roles.each_with_index do |role, index| %>
+      <%= hidden_field_tag "roles[#{index}][id]", role.id %>
+      <div class="row">
+        <div class='col-md-6 col-sm-6'>
+          <%= role.name %>
+        </div>
+        <div class='col-md-6 col-sm-6'>
+          <% if role.hidden %>
+            <%= check_box_tag("roles[#{index}][hidden]", 1, checked: 'checked')%>
+          <% else %>
+            <%= check_box_tag("roles[#{index}][hidden]", 1)%>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <%= submit_tag 'Submit'%>
+  <% end %>
+</div>

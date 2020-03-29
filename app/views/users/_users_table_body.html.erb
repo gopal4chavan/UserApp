@@ -1,0 +1,11 @@
+
+<% @users.each do |user| %>
+  <tr>
+    <td class="user_image"> <%= image_tag(user.images.first) %> </td>
+    <td> <%= user.first_name %> </td>
+    <td> <%= user.last_name %> </td>
+    <td> <%= user.email %> </td>
+    <td> <%= user.user_role_names %> </td>
+    <td> <%= user.meta_cols %> </td>
+  </tr>
+<% end %>

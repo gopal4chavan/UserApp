@@ -1,0 +1,50 @@
+.user_image img{
+    width: 100px;
+    height: 100px;
+    border: 3px solid #DEDEDE;
+    margin: auto;
+    cursor: pointer;
+    padding: 5px;
+    display: block;
+
+}
+.table tr td{
+    vertical-align: middle;
+    text-align: center;
+}
+
+.bootstrap-select.multi-select-dropdown{
+    width: calc(100% - 260px);
+    .btn.dropdown-toggle{
+      margin-top: 0;
+      font-family: roboto;
+      font-weight: 500;
+      color: #4E6571;
+      background-color: white;
+      margin-left: 10px;
+      border-color: transparent;
+      border-bottom-color: #dae0e5;
+      border-radius: 0;
+    }
+    .dropdown-menu{
+      .bs-searchbox>input{
+        font-family: Roboto;
+        font-size: 16px;
+        color: #4E6571;
+      }
+      .inner{
+        .dropdown-menu.inner{
+          li a{
+            font-family: Roboto;
+            font-size: 16px;
+            color: #4E6571;
+          }
+        }
+      }
+      .selected span.check-mark{
+        font-family: Roboto;
+        font-size: 16px;
+        color: #4E6571;
+      }
+    }
+  }

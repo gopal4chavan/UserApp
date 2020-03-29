@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UserRoles</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+
+  <body>
+    <div class="wrapper">
+      
+      
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-info">
+          <%= msg %>
+        </div>
+      <% end %>
+
+
+
+      <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>User Roles Header</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <%# <p>Options</p> %>
+            <li>
+              <a href="/">Add Role</a>
+              <a href="/roles/hide_roles_form">Hide Role</a>
+              <a href="/users/new">Add User</a>
+              <a href="/users/index">Show User</a>
+            </li>
+        </ul>
+      </nav>
+      <div id="content">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+          <h4>Application body</h4>
+          <%# <>
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span></span>
+            </button> %>
+
+          </div>
+        </nav>
+        <%= yield %>
+      </div>
+  </body>
+</html>
